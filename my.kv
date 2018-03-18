@@ -1,0 +1,71 @@
+#:kivy 1.4
+
+FloatLayout:
+	canvas.before:
+        Color:
+            rgba: 1, 1, 1, 0.9
+        Rectangle:
+            pos: self.pos
+            size: self.size
+			
+    AsyncImage:
+	    id: in_img
+        source: "C:\\app_ui\\placeholder.png"
+        size_hint: 0.425, 0.75
+        pos_hint: {'x': 0.05, 'y': 0.15}
+        
+    AsyncImage:
+	    id: out_img
+        source: "C:\\app_ui\\placeholder.png"
+        size_hint: 0.425, 0.75
+        pos_hint: {'x': 0.525, 'y': 0.15}
+        
+    Label:
+        text: "[color=000]Input image[/color]"
+        size_hint: 0.425, 0.1
+        pos_hint: {'x': .05, 'y': 0.8725}
+        markup: True
+        
+    Label:
+        text: "[color=000]Output image[/color]"
+        size_hint: 0.425, 0.1
+        pos_hint: {'x': .525, 'y': 0.8725}
+        markup: True
+         
+    Button:
+        text: "Load"
+        size_hint: .1, .075
+        pos_hint: {'x': .05, 'y': .05}
+        canvas:
+        	Color:
+         	   rgba: 1, 1, 1, 0.5
+        	Rectangle:
+         	   pos: self.pos
+         	   size: self.size
+		on_press:app.load_f()
+		
+    Button:
+        text: "Save"
+        #pos: 200, 100
+        size_hint: .1, .075
+        pos_hint: {'x': .2, 'y': .05}
+		canvas:
+        	Color:
+         	   rgba: 1, 1, 1, 0.5
+        	Rectangle:
+         	   pos: self.pos
+         	   size: self.size
+	    on_press: app.save()
+   
+    Button:
+        text: "Colorize!"
+        pos_hint: {'x': .8, 'y': .05}
+        size_hint: .15, .075
+		canvas:
+        	Color:
+         	   rgba: 1, 1, 1, 0.5
+        	Rectangle:
+         	   pos: self.pos
+         	   size: self.size
+        on_press: app.colorize_click()
+ 
